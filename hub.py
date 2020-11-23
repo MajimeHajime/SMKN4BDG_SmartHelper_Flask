@@ -5,7 +5,7 @@ import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
 import json
-#import PredictionModel // Masih buggy
+import PredictionModel
 
 app = Flask(__name__)
 
