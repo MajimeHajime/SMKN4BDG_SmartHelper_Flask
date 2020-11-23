@@ -1,2 +1,10 @@
-# SMKN4BDG_SmartHelper_Flask
- Projek Akhir KKSI untuk kelompok Smart Helper dari SMKN4BDG
+# CovidModel_SMKN4BDG_SmartHelper
+Untuk lomba KKSI 2020 produk Smart Helper
+
+## Team Smart Helper
+### Pembina
+- Ibu Tyas
+### Anggota (Sesuai Absen)
+- Aldo Fakhry
+- Firdaus Haqiqi
+- Muhammad Azmi (Ketua)
