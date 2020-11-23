@@ -1,13 +1,24 @@
 from flask import Flask, render_template, url_for
+from PredictionModel import run_prediction
+from datetime import date
 import plotly
 import plotly.express as px
 import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
 import json
-import PredictionModel
+import pickle
+
 
 app = Flask(__name__)
+
+today = date.today()
+outaded = bool(0)
+try:
+    lastRun = pickle.load(open("day.pickle", "rb"))
+except (OSError, IOError) as e:
+    lastRun = today
+    pickle.dump(lastRun, open("day.pickle", "wb"))
 
 
 @app.route('/')
@@ -18,12 +29,26 @@ def front():
 
 @app.route('/stats')
 def stats():
+    check_day()
+    if outaded:
+        run_prediction()
+    else:
+        pass
     bar = create_plot()
     return render_template(
         'stats.html',
         plot=bar
         )
 
+def check_day():
+    if today == lastRun :
+        outaded = bool(0)
+        return outaded
+    elif today > lastRun :
+        outaded = bool(1)
+        return outaded
+    else:
+        pass
 
 def create_plot():
     df = pd.read_csv('testfile.csv')
