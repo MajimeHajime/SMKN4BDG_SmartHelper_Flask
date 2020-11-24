@@ -39,16 +39,23 @@ def front():
 
 @app.route('/stats')
 def stats():
+    # FIX CODE BELOW
+    #check_day() << python why u do dis to my variable
+    #return outdated << temporary fix that doesnt work
+    #if outdated: << 'not declared' why?
+    #    run_prediction()
+    #    outdated = bool(0)
+    #else:
+        #pass
+    # FIXX THE UPPER CODE
 
-    #TEMPORARY FIX 
-    ''' Uncomment To try(blom dicoba tapi secara teori harusnya jalan, dicoba pas tanggal berganti)
+    #TEMPORARY FIX
     if today > lastRun :
         run_prediction()
         flastRun = today
         pickle.dump(flastRun, open("day.pickle", "wb"))
     else:
         pass
-    '''
     #UPPER CODE IS VERY BEEG AND NOT GOOD
     bar = create_plot()
     stats = [today_case()]
@@ -68,6 +75,20 @@ def create_plot():
     data = fig
     graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON
+
+def check_day():
+    flastRun = lastRun
+    if today == flastRun :
+        outdated = bool(0)
+        return outdated
+    elif today > flastRun :
+        outdated = bool(1) 
+        flastRun = today
+        pickle.dump(flastRun, open("day.pickle", "wb"))
+        return outdated
+    else:
+        pass
+
 
 def today_case():
     case = df.loc[df["date"] == todayish, "total"]
