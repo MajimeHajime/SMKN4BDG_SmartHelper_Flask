@@ -16,7 +16,7 @@ def run_prediction():
     df.fillna(0)
 
     df = df[df['total_cases'] > 10000]
-    list_ed = len(df)+1 #untuk mendapatkan jumlah dari hari 
+    list_ed = len(df)+1 #untuk mendapatkan jumlah dari hari
     ar=list(range(1,list_ed))
     df.insert(0,"SN",ar,True)
     x1 = np.array(df["SN"]).reshape(-1,1)
