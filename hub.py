@@ -12,7 +12,7 @@ import pickle
 
 app = Flask(__name__)
 
-# global outdated << somehow gak recognize sm function
+# global outdated << somehow gak recognize sm function (cek hub yg spageti)
 today = date.today()
 todayish = today - timedelta(days=1)
 yesterday = today - timedelta(days=2)
