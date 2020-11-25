@@ -9,6 +9,7 @@ import datetime
 
 def run_prediction():
     # Untuk mendapatkan data terbaru, kecepatan tergantung dengan koneksi anda
+    print("Mengambil Data terbaru")
     url = 'https://covid.ourworldindata.org/data/owid-covid-data.csv' 
     covid_data = pd.read_csv(url, index_col=0, sep=',')
     df = covid_data.loc[covid_data['location'] == 'Indonesia']
@@ -65,6 +66,9 @@ def run_prediction():
 
 
     #export graph
+    list_ed = len(futurepred)+1 #untuk mendapatkan jumlah dari hari
+    ar=list(range(1,list_ed))
+    futurepred.insert(0,"SN",ar,True)
     futurepred.to_csv('testfile.csv')
 
 #  ++=========================================++

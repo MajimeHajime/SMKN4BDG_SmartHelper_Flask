@@ -14,7 +14,7 @@ import pickle
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '51c11bd0792105993631f9e22095b5f8'
 
-'''
+
 try:
     lastRun = pickle.load(open("day.pickle", "rb"))
 except (OSError, IOError) as e:
@@ -28,7 +28,7 @@ if date.today() > lastRun :
     pickle.dump(flastRun, open("day.pickle", "wb"))
 else:
     pass
-'''
+
 
 @app.route('/')
 def front():
@@ -74,9 +74,9 @@ def register():
 @app.route('/stats')
 def stats():
     df = pd.read_csv('testfile.csv')
-    t_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=2)), 'total'])
-    y_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=3)), 'total'])
-    yoy_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=4)), 'total'])
+    t_stat = int(df.loc[df['SN'] == df['total'].notna()[::-1].idxmax() + 1, 'total'])
+    y_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=2)), 'total'])
+    yoy_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=3)), 'total'])
     p_stat = int(df.loc[df['date'] == str(date.today() + timedelta(days=7)), 'y_fut'])
     c_stat = t_stat - y_stat 
     c1_stat = y_stat - yoy_stat

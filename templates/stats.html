@@ -26,7 +26,7 @@
 							<span class="pt-16px mb-0px">{{change}}</span>
 							<div class="font_11px">
 								{% if compare > change %}
-									<p class="positive_n mt-0px">-{{news}} Decrease From Yesterday</p>
+									<p class="positive_n mt-0px">{{news}} Decrease From Yesterday</p>
 								{% elif compare == change %}
 									<p class="nonews_n mt-0px">A steady increase</p>
 								{% elif compare < change %}
@@ -45,7 +45,7 @@
 							<span class="pt-16px mb-0px">{{predict}}</span> 
 							<div class="font_11px">
 								{% if today > predict %}
-									<p class="positive_n mt-0px">-{{news2}} From Today</p>
+									<p class="positive_n mt-0px">{{news2}} From Today</p>
 								{% elif today < predict %}
 									<p class="negative_n mt-0px">+{{news2}} From Today</p>
 								{% else %}
