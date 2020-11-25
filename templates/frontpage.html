@@ -1,5 +1,12 @@
 {% extends 'index.html' %}
 
+{% block navbar %}
+	<div class="cpx-15 button_cont">
+		<a class="button_txt sf_semibold black_1f sf_semibold_sel right_mar" href="{{ url_for('front') }}">Homepage</a>
+		<a class="button_txt middle_mar dehigh sf_semibold_sel" href="/#">Hot</a>
+		<a class="button_txt dehigh sf_semibold_sel left_mar" href="{{ url_for('stats') }}">Stats</a>
+	</div>
+{% endblock %}
 {% block body %}
 	<div class="container">
 		<h1>This is a frontpage test</h1>

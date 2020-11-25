@@ -51,8 +51,9 @@ body {
 }
 
 .header_t{
-	background-color: rgba(249, 249, 249, 0.70);
+	background-color: rgba(249, 249, 249, 0.75);
 	backdrop-filter: blur(9px);
+	border-bottom: 2px solid #CBCBCB
 }
 
 .content_big{
@@ -74,10 +75,11 @@ body {
 
 
 .button_txt {
+	font-size: 15px;
 	text-decoration: none;
 	color: #787878;
 }
-.button_txt:hover {
+.button_txt:hover { 
 	text-decoration: none;
 	color: #0071E3;
 }
@@ -86,6 +88,7 @@ body {
 }
 
 .logo_sh {
+	font-size: 20px;
 	color: #1F1F1F;
 	text-decoration: none;
 	font-family: "SF Pro Display Semibold";
@@ -93,4 +96,68 @@ body {
 .logo_sh:hover {
 	color: white;
 	text-decoration: none;
+}
+.cmr-15px{
+	margin-right: 15px;
+}
+.header_s {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.button_cont {
+	border: 1px solid rgba(203, 203, 203, 0);
+}
+.button_cont:hover {
+	border-color: rgba(203, 203, 203, 1);
+}
+.cpx-15{
+	padding-right: 15px;
+	padding-left: 15px;
+	border-radius: 5px;
+}
+.dehigh {
+	color: #CBCBCB;
+}
+.middle_mar{
+	padding-right: 6px;
+	padding-left: 11px;
+	border-left: 1px solid #CBCBCB;
+	border-right: 1px solid #CBCBCB;
+	transition: 0.3s;
+}
+.left_mar {
+	margin-left: 6px;
+	transition: 0.3s;
+}
+.right_mar {
+	margin-right: 6px;
+	transition: 0.3s;
+}
+.sf_semibold {
+	color: #1F1F1F;
+	text-decoration: none;
+	font-family: "SF Pro Display Semibold";
+}
+.sf_semibold_sel{}
+.button_cont:hover .middle_mar{
+	padding-right: 17px;
+	padding-left: 17px;
+	border-color: rgba(31, 31, 31, 0.5);
+	border-width: 1px;
+}
+.button_cont:hover .left_mar{
+	margin-left: 17px;
+}
+.button_cont:hover .right_mar{
+	margin-right: 17px;
+}
+.button_cont:hover .sf_semibold_sel {
+	color: #1F1F1F;
+	text-decoration: none;
+	font-family: "SF Pro Display Semibold";
+}
+.button_cont:hover .sf_semibold_sel:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+	font-family: "SF Pro Display Semibold";
 }

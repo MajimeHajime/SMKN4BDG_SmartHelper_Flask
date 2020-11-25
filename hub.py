@@ -19,6 +19,14 @@ except (OSError, IOError) as e:
     pickle.dump(lastRun, open("day.pickle", "wb"))
 lastRun = lastRun
 
+if date.today() > lastRun :
+    run_prediction()
+    flastRun = date.today()
+    pickle.dump(flastRun, open("day.pickle", "wb"))
+else:
+    pass
+
+
 @app.route('/')
 def front():
     return render_template(
@@ -27,12 +35,6 @@ def front():
 
 @app.route('/stats')
 def stats():
-    if date.today() > lastRun :
-        run_prediction()
-        flastRun = date.today()
-        pickle.dump(flastRun, open("day.pickle", "wb"))
-    else:
-        pass
     df = pd.read_csv('testfile.csv')
     t_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=1)), 'total'])
     y_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=2)), 'total'])
