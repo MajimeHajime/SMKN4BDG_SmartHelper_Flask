@@ -29,6 +29,7 @@ body {
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;
+  color: #1F1F1F;
 }
 
 .navbar {
@@ -49,7 +50,47 @@ body {
   font: 800 40px system-ui;
 }
 
-.shadow_t{
-	backdrop-filter: blur(6px);
-	box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+.header_t{
+	background-color: rgba(249, 249, 249, 0.70);
+	backdrop-filter: blur(9px);
+}
+
+.content_big{
+	padding: 3px 132px 60px 132px;
+	margin: 0px 75px 75px 60px;
+	border-bottom-right-radius:10px; 
+	border-bottom-left-radius:10px;
+}
+.white_bg{
+	background-color: white;
+}
+.shadow_lol{
+	box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.16);
+}
+
+.nav-link:hover .nav-link:focus{
+	color: #1F1F1F;
+}
+
+.button_sh {
+	background-color: #0071E3;
+	color: white;
+	border-radius: 30px;
+	margin-right: 15px;
+	padding: 0% 20% 0% 20%;
+
+}
+.button_txt {
+	text-decoration: none;
+	color: white;
+}
+.button_txt:hover {
+	text-decoration: none;
+	color: white;
+}
+.button_sh:hover {
+	background-color: #0082F4;
+}
+.lefties {
+	margin-right: 30px;
 }

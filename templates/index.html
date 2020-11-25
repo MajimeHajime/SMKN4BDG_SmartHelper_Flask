@@ -13,10 +13,10 @@
   <script src="{{ url_for('static', filename='customJs/c_js.js') }}" type="text/javascript"></script>
 </head>
 <body>
-	<header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top shadow_t">
+	<header class="site-header logo_col">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top shadow_lol header_t position-fixed">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">S | Helper</a>
+          <a class="nav-item nav-link" href="/">S | Helper</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -27,9 +27,15 @@
               <a class="nav-item nav-link" href="{{ url_for('stats') }}">Stats</a>
             </div>
             <!-- Navbar Right Side -->
-            <div class="navbar-nav">
-              <a class="nav-item nav-link" href="/login">Login</a>
-              <a class="nav-item nav-link" href="/register">Register</a>
+            <div class="lefties">
+              <div class="navbar-nav">
+                <div class="button_sh">  
+                  <a class="button_txt" href="/login">Login</a>
+                </div>
+                <div class="button_sh">  
+                  <a class="button_txt" href="/register">Register</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
