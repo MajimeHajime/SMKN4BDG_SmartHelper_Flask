@@ -14,7 +14,7 @@ import pickle
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '51c11bd0792105993631f9e22095b5f8'
 
-
+'''
 try:
     lastRun = pickle.load(open("day.pickle", "rb"))
 except (OSError, IOError) as e:
@@ -28,7 +28,7 @@ if date.today() > lastRun :
     pickle.dump(flastRun, open("day.pickle", "wb"))
 else:
     pass
-
+'''
 
 @app.route('/')
 def front():
