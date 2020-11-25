@@ -9,9 +9,7 @@ import numpy as np
 import json
 import pickle
 
-
-app = Flask(__name__)
-
+'''
 today = date.today()
 todayish = today - timedelta(days=1)
 yesterday = today - timedelta(days=2)
@@ -30,3 +28,9 @@ except (OSError, IOError) as e:
 lastRun = lastRun
 
 print(lastRun)
+'''
+
+df = pd.read_csv('testfile.csv')
+today = date.today() - timedelta(days=1)
+stats = int(df.loc[df['date'] == str(date.today() - timedelta(days=1)), 'total'])
+print(stats)

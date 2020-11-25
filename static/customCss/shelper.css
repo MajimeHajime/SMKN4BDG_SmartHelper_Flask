@@ -1,4 +1,10 @@
 
+body {
+	font-family: "SF Pro Display";
+	background-color: #F2F2F2;
+	color: #1F1F1F;
+}
+
 .site-header .navbar-nav .nav-link {
   color: #cbd5db;
 }
@@ -37,4 +43,13 @@
   justify-content: space-between;
   padding-top: 0.7rem;
   padding-bottom: 0.7rem;
+}
+
+.count {
+  font: 800 40px system-ui;
+}
+
+.shadow_t{
+	backdrop-filter: blur(6px);
+	box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }

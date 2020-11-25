@@ -33,10 +33,19 @@ def stats():
         pickle.dump(flastRun, open("day.pickle", "wb"))
     else:
         pass
+    df = pd.read_csv('testfile.csv')
+    t_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=1)), 'total'])
+    y_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=2)), 'total'])
+    p_stat = int(df.loc[df['date'] == str(date.today() + timedelta(days=7)), 'y_fut'])
+    c_stat = t_stat - y_stat 
+
     bar = create_plot()
     return render_template(
         'stats.html',
-        plot=bar
+        plot=bar,
+        today=t_stat,
+        predict=p_stat,
+        change=c_stat
         )
 
 def create_plot():

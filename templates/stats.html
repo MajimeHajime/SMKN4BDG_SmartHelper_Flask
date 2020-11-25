@@ -2,12 +2,21 @@
 
 {% block body %}
 	<div class="container">
-		<div class="container">
-	        <div class="chart" id="bargraph">
-			    <script>
-			        var graphs = {{plot | safe}};
-			        Plotly.plot('bargraph',graphs,{});
-			    </script>
+		<div class="">
+			<div class="container">
+		        <div class="chart" id="bargraph">
+				    <script>
+				        var graphs = {{plot | safe}};
+				        Plotly.plot('bargraph',graphs,{});
+				    </script>
+				</div>
+			</div>
+			<div>
+				<div>
+					<h4 class="count" id="value">{{change}}</h4>
+					<h4>{{today}}</h4>
+					<h4>{{predict}}</h4> 
+				</div>	
 			</div>
 		</div>
 	</div>
