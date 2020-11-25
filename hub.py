@@ -27,7 +27,7 @@ change = 0
 try:
     lastRun = pickle.load(open("day.pickle", "rb"))
 except (OSError, IOError) as e:
-    flastRun = today
+    lastRun = today
     pickle.dump(lastRun, open("day.pickle", "wb"))
 lastRun = lastRun
 
@@ -41,26 +41,21 @@ def front():
 def stats():
 
     #TEMPORARY FIX 
-    ''' Uncomment To try(blom dicoba tapi secara teori harusnya jalan, dicoba pas tanggal berganti)
-    if today > lastRun :
+    # Uncomment To try(blom dicoba tapi secara teori harusnya jalan, dicoba pas tanggal berganti)
+    if date.today() > lastRun :
         run_prediction()
-        flastRun = today
+        flastRun = date.today()
         pickle.dump(flastRun, open("day.pickle", "wb"))
     else:
         pass
-    '''
     #UPPER CODE IS VERY BEEG AND NOT GOOD
     bar = create_plot()
-    stats = [today_case()]
     return render_template(
         'stats.html',
-        today=todayish,
-        plot=bar,
-        stat=stats
+        plot=bar
         )
 
 def create_plot():
-    global df 
     df = pd.read_csv('testfile.csv')
     fig = px.line(df, x="date", y="predicted", color=px.Constant("Prediction"))
     fig.add_bar(x=df["date"], y=df["total"], name="Total Cases")
