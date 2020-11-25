@@ -75,9 +75,9 @@ def register():
 def stats():
     df = pd.read_csv('testfile.csv')
     t_stat = int(df.loc[df['SN'] == df['total'].notna()[::-1].idxmax() + 1, 'total'])
-    y_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=2)), 'total'])
-    yoy_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=3)), 'total'])
-    p_stat = int(df.loc[df['date'] == str(date.today() + timedelta(days=7)), 'y_fut'])
+    y_stat = int(df.loc[df['SN'] == df['total'].notna()[::-1].idxmax(), 'total'])
+    yoy_stat = int(df.loc[df['SN'] == df['total'].notna()[::-1].idxmax() - 1, 'total'])
+    p_stat = int(df.loc[df['SN'] == df['total'].notna()[::-1].idxmax() + 7, 'y_fut'])
     c_stat = t_stat - y_stat 
     c1_stat = y_stat - yoy_stat
     news = c_stat - c1_stat
