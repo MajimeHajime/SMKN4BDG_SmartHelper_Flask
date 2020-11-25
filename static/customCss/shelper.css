@@ -72,25 +72,25 @@ body {
 	color: #1F1F1F;
 }
 
-.button_sh {
-	background-color: #0071E3;
-	color: white;
-	border-radius: 30px;
-	margin-right: 15px;
-	padding: 0% 20% 0% 20%;
 
-}
 .button_txt {
 	text-decoration: none;
-	color: white;
+	color: #787878;
 }
 .button_txt:hover {
 	text-decoration: none;
-	color: white;
-}
-.button_sh:hover {
-	background-color: #0082F4;
+	color: #0071E3;
 }
 .lefties {
 	margin-right: 30px;
+}
+
+.logo_sh {
+	color: #1F1F1F;
+	text-decoration: none;
+	font-family: "SF Pro Display Semibold";
+}
+.logo_sh:hover {
+	color: white;
+	text-decoration: none;
 }
