@@ -38,23 +38,35 @@ def stats():
     df = pd.read_csv('testfile.csv')
     t_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=1)), 'total'])
     y_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=2)), 'total'])
+    yoy_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=3)), 'total'])
     p_stat = int(df.loc[df['date'] == str(date.today() + timedelta(days=7)), 'y_fut'])
     c_stat = t_stat - y_stat 
-
+    c1_stat = y_stat - yoy_stat
+    news = c_stat - c1_stat
+    news2 = p_stat - t_stat
     bar = create_plot()
     return render_template(
         'stats.html',
         plot=bar,
-        today=t_stat,
-        predict=p_stat,
-        change=c_stat
+        today=f'{t_stat:,}',
+        predict=f'{p_stat:,}',
+        change=f'{c_stat:,}',
+        compare=f'{c1_stat:,}',
+        news=news,
+        news2=news2
         )
 
 def create_plot():
     df = pd.read_csv('testfile.csv')
-    fig = px.line(df, x="date", y="predicted", color=px.Constant("Prediction"))
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=df["date"], y=df['predicted'], name="Past Prediction", line = dict(color='#2AA965', width=2)))
+    #px.line(df, x="date", y="predicted", color=px.Constant("Prediction"), line = dict(color='#2AA965', width=2, dash='dash'))
     fig.add_bar(x=df["date"], y=df["total"], name="Total Cases")
-    fig.add_trace(go.Scatter(x=df["date"], y=df['y_fut'], name="Future Prediction", mode='lines+markers'))
+    fig.add_trace(go.Scatter(x=df["date"], y=df['y_fut'], name="Future Prediction", line = dict(color='#CC252C', width=2, dash='dot')))
+    fig.update_traces(marker_color='#CBCBCB')
+    fig.layout.update(showlegend=False)
+    fig.layout.update(yaxis_title=" ")
+    fig.layout.update(xaxis_title=" ")
     data = fig
     graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON

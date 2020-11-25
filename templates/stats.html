@@ -1,10 +1,17 @@
 {% extends 'index.html' %}
 
+{% block navbar %}
+	<div class="cpx-15 button_cont">
+		<a class="button_txt sf_semibold_sel right_mar dehigh" href="{{ url_for('front') }}">Homepage</a>
+		<a class="button_txt middle_mar dehigh sf_semibold_sel" href="/#">Hot</a>
+		<a class="button_txt sf_semibold_sel left_mar button_txt sf_semibold black_1f" href="{{ url_for('stats') }}">Stats</a>
+	</div>
+{% endblock %}
 {% block body %}
 	<div>
 		<div class="white_bg content_big shadow_lol">
 			<div class="pt-5">
-				<div class="container pt-3">
+				<div class="pt-3">
 			        <div class="chart" id="bargraph">
 					    <script>
 					        var graphs = {{plot | safe}};
@@ -12,11 +19,40 @@
 					    </script>
 					</div>
 				</div>
-				<div>
-					<div>
-						<h4>{{change}}</h4>
-						<h4>{{today}}</h4>
-						<h4>{{predict}}</h4> 
+				<div class="text-center">
+					<div class="row sf_semibold font_30px ">
+						<div class="col-md-4 text-center">
+							<p class="mb-0">New Cases</p>
+							<span class="pt-16px mb-0px">{{change}}</span>
+							<div class="font_11px">
+								{% if compare > change %}
+									<p class="positive_n mt-0px">-{{news}} Decrease From Yesterday</p>
+								{% elif compare == change %}
+									<p class="nonews_n mt-0px">A steady increase</p>
+								{% elif compare < change %}
+									<p class="negative_n mt-0px">+{{news}} Increase From Yesterday</p>
+								{% else %}
+									<p class="nonews_n mt-0">Error</p>
+								{% endif %}
+							</div>
+						</div>
+						<div class="col-md-4 text-center">
+							<p class="mb-0">Total Cases</p>
+							<span class="pt-16px mb-0px">{{today}}</span>
+						</div>
+						<div class="col-md-4 text-center">
+							<p class="mb-0">Next Week</p>
+							<span class="pt-16px mb-0px">{{predict}}</span> 
+							<div class="font_11px">
+								{% if today > predict %}
+									<p class="positive_n mt-0px">-{{news2}} From Today</p>
+								{% elif today < predict %}
+									<p class="negative_n mt-0px">+{{news2}} From Today</p>
+								{% else %}
+									<p class="nonews_n mt-0">Error</p>
+								{% endif %}
+							</div>
+						</div>
 					</div>	
 				</div>
 			</div>

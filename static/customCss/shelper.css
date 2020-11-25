@@ -120,7 +120,7 @@ body {
 }
 .middle_mar{
 	padding-right: 6px;
-	padding-left: 11px;
+	padding-left: 6px;
 	border-left: 1px solid #CBCBCB;
 	border-right: 1px solid #CBCBCB;
 	transition: 0.3s;
@@ -160,4 +160,33 @@ body {
 	color: #FFFFFF;
 	text-decoration: none;
 	font-family: "SF Pro Display Semibold";
+}
+.statss{
+	margin-right: 61px; 
+	margin-left: 61px;
+}
+.font_30px{
+	font-size: 30px;
+}
+
+.pt-16px{
+	margin-top: 16px;
+}
+.font_11px{
+	font-size: 11px;
+}
+.positive_n{
+	color: #2AA965;
+}
+.negative_n{
+	color: #CC252C;
+}
+.nonews_n{
+	color: #CBCBCB;
+}
+.mb-0px{
+	margin-bottom: 0px;
+}
+.mt-0px{
+	margin-top: 0px;
 }
