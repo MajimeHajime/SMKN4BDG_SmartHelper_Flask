@@ -74,9 +74,9 @@ def register():
 @app.route('/stats')
 def stats():
     df = pd.read_csv('testfile.csv')
-    t_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=1)), 'total'])
-    y_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=2)), 'total'])
-    yoy_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=3)), 'total'])
+    t_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=2)), 'total'])
+    y_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=3)), 'total'])
+    yoy_stat = int(df.loc[df['date'] == str(date.today() - timedelta(days=4)), 'total'])
     p_stat = int(df.loc[df['date'] == str(date.today() + timedelta(days=7)), 'y_fut'])
     c_stat = t_stat - y_stat 
     c1_stat = y_stat - yoy_stat
