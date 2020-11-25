@@ -12,22 +12,10 @@ import pickle
 
 app = Flask(__name__)
 
-# global outdated << somehow gak recognize sm function (cek hub yg spageti)
-today = date.today()
-todayish = today - timedelta(days=1)
-yesterday = today - timedelta(days=2)
-tomorrow = today + timedelta(days=1)
-outdated = bool(0)
-case = 0
-casePast = 0
-casePred = 0
-change = 0
-# global lastRun << doesn't work fak
-
 try:
     lastRun = pickle.load(open("day.pickle", "rb"))
 except (OSError, IOError) as e:
-    lastRun = today
+    lastRun = date.today()
     pickle.dump(lastRun, open("day.pickle", "wb"))
 lastRun = lastRun
 
@@ -39,16 +27,12 @@ def front():
 
 @app.route('/stats')
 def stats():
-
-    #TEMPORARY FIX 
-    # Uncomment To try(blom dicoba tapi secara teori harusnya jalan, dicoba pas tanggal berganti)
     if date.today() > lastRun :
         run_prediction()
         flastRun = date.today()
         pickle.dump(flastRun, open("day.pickle", "wb"))
     else:
         pass
-    #UPPER CODE IS VERY BEEG AND NOT GOOD
     bar = create_plot()
     return render_template(
         'stats.html',
@@ -63,16 +47,6 @@ def create_plot():
     data = fig
     graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON
-
-def today_case():
-    case = df.loc[df["date"] == todayish, "total"]
-    casePast = df.loc[df["date"] == yesterday, "total"]
-    casePred = df.loc[df["date"] == tomorrow, "y_fut"]
-    change = case - casePred
-    global stats
-    stats = [case,casePred,casePast]
-    return stats
-
 
 if __name__ == '__main__':
     app.run(debug=True)
