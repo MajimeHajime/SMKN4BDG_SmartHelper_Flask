@@ -1,0 +1,62 @@
+{% extends "index.html" %}
+{% block navbar %}
+    <div class="cpx-15 button_cont">
+        <a class="button_txt sf_semibold_sel right_mar dehigh" href="{{ url_for('front') }}">Homepage</a>
+        <a class="button_txt middle_mar dehigh sf_semibold_sel" href="/#">Hot</a>
+        <a class="button_txt sf_semibold_sel left_mar dehigh" href="{{ url_for('stats') }}">Stats</a>
+    </div>{% endblock navbar %}
+{% block body %}
+<div class="sidbar white_bg shadow_lol sidbar_padding">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+            <div class="form-group">
+                {{ form.title.label(class="form-control-label") }}
+                {% if form.title.errors %}
+                    {{ form.title(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.title.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.title(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.content.label(class="form-control-label" ) }}
+                {% if form.content.errors %}
+                    {{ form.content(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.content(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+{% endblock body %}
+{% block sidebar %}
+<div class="col-md-5">
+  <div class="sidbar white_bg shadow_lol">
+      <ul class="list-group sidbar_padding">
+        <li class="list-group-item list-group-item-light">Latest Posts</li>
+        <li class="list-group-item list-group-item-light">Announcements</li>
+        <li class="list-group-item list-group-item-light">Calendars</li>
+        <li class="list-group-item list-group-item-light">etc</li>
+      </ul>
+      <div class="bgbg_bg imag_pudding">
+        <h4 class="sf_semibold white_font">Welcome</h4>
+      </div>
+    </p>
+  </div>
+</div>
+{% endblock sidebar %}

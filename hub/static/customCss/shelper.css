@@ -58,7 +58,6 @@ body {
 
 .content_big{
 	padding: 3px 132px 60px 132px;
-	margin: 0px 75px 30px 75px;
 	border-bottom-right-radius:10px; 
 	border-bottom-left-radius:10px;
 }
@@ -293,7 +292,7 @@ body {
 .posts_bg {
 	background-color: white;
 	border: 1px solid #CBCBCB; 
-	padding: 3px 80px 60px 80px;
+	padding: 10px 80px 10px 0px;
 	margin: 0px 0px -1px 0px;
 }
 .font_30 {
@@ -391,4 +390,16 @@ body {
 	background-repeat: no-repeat;
   	background-position: center;
   	padding: 30px;
+}
+.content_sh {
+		margin: 0px 75px 30px 75px;
+}
+.article_image{
+	width: 150px
+}
+.profile_pic {
+	border: 1px solid #cbd5db; 
+	border-radius: 10px;
+	margin-right: 20px;
+	margin-bottom: 10px;
 }

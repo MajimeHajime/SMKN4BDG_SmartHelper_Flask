@@ -6,6 +6,7 @@
 	{% else %}
 	<title>Smart Helper</title>
 	{% endif %}
+  <link rel="icon" type="image/x-icon/" href="{{ url_for('static', filename='image/fav.ico') }}"/>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap-grid.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='customCss/shelper.css') }}">
@@ -30,6 +31,7 @@
             <!-- Navbar Right Side -->
               <div class="navbar-nav">
                 {% if current_user.is_authenticated %}
+                  <a class="button_txt mr-3" href="{{ url_for('new_post') }}">New Post</a>
                   <a class="button_txt mr-3" href="{{ url_for('account') }}">Account</a>
                   <a class="button_txt"  href="{{ url_for('logout') }}">Logout</a>
                 {% else %}
@@ -42,7 +44,7 @@
       </nav>
     </header>
     
-	<main>
+	<main class="content_sh">
 		{% block body %}
 		{% endblock %}
 	</main>

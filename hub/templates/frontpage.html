@@ -15,11 +15,14 @@
 		</div>
 	</div>
     {% for post in posts %}
-        <article class="media posts_bg">
-          <div class="">
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
+        <article class="media posts_bg row">
+          <div class="col-md-3">
+          	<img class="article_image" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
           </div>
+          <div class="col-md-9">
+            <h2><a class="" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+            <p class="">{{ post.content | truncate(300) | safe  }}</p>
+           </div>
         </article>
     {% endfor %}
 </div>

@@ -6,12 +6,16 @@
 	{% else %}
 	<title>Smart Helper</title>
 	{% endif %}
+  <link rel="icon" type="image/x-icon/" href="{{ url_for('static', filename='image/fav.ico') }}"/>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap-grid.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='customCss/shelper.css') }}">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
   <script src="{{ url_for('static', filename='customJs/c_js.js') }}" type="text/javascript"></script>
+  <!-- include summernote css/js -->
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 </head>
 <body>
 	<header class="site-header logo_col">
@@ -30,6 +34,7 @@
             <!-- Navbar Right Side -->
               <div class="navbar-nav">
                 {% if current_user.is_authenticated %}
+                  <a class="button_txt mr-3" href="{{ url_for('new_post') }}">New Post</a>
                   <a class="button_txt mr-3" href="{{ url_for('account') }}">Account</a>
                   <a class="button_txt"  href="{{ url_for('logout') }}">Logout</a>
                 {% else %}
@@ -60,6 +65,11 @@
         {% endblock %}
       </div>
 	</main>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#summernote').summernote();
+    });
+  </script>
 </body>
 
 </html>
