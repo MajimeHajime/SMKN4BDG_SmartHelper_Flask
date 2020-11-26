@@ -2,7 +2,7 @@
 Untuk lomba KKSI 2020 produk Smart Helper
 
 # Cara Pakai
-Run hub.py
+Run run.py
 
 ## Team Smart Helper
 ### Pembina
