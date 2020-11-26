@@ -3,7 +3,7 @@ from hub import app
 from hub.forms import RegistrationForm, LoginForm
 from hub.models import User, Post
 import pickle
-from hub.variables import t_stat, y_stat, yoy_stat, p_stat, c_stat, c1_stat, news, news2
+from hub.variables import t_stat, y_stat, yoy_stat, p_stat, c_stat, c1_stat, news, news2, posts
 
 @app.route('/')
 def front():

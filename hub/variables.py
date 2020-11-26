@@ -20,6 +20,18 @@ if date.today() > lastRun :
     pickle.dump(flastRun, open("day.pickle", "wb"))
 else:
     pass
+
+posts = [
+    {
+        'title': 'Blog Post 1',
+        'content': 'First post content',
+    },
+    {
+        'title': 'Blog Post 2',
+        'content': 'Second post content',
+    }
+]
+
 df = pd.read_csv('testfile.csv')
 t_stat = int(df.loc[df['SN'] == df['total'].notna()[::-1].idxmax() + 1, 'total'])
 y_stat = int(df.loc[df['SN'] == df['total'].notna()[::-1].idxmax(), 'total'])
