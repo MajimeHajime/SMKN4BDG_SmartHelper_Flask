@@ -1,4 +1,4 @@
-{% extends 'index.html' %}
+{% extends 'no_sidebar.index.html' %}
 
 {% block navbar %}
 	<div class="cpx-15 button_cont">
@@ -9,9 +9,14 @@
 {% endblock %}
 {% block body %}
 	<div>
-		<div class="white_bg content_big shadow_lol">
-			<div class="pt-5">
-				<div class="pt-3">
+		<div class="white_bg content_big shadow_lol pt-stat">
+			<div class="bgbg_bgbg_s text-center">
+                <div>
+        	        <h4 class="sf_semibold white_font">Statistik COVID-19</h4>
+                </div>
+            </div>
+			<div>
+				<div>
 			        <div class="chart" id="bargraph">
 					    <script>
 					        var graphs = {{plot | safe}};

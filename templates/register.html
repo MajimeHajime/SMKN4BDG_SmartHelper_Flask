@@ -1,0 +1,102 @@
+{% extends "index.html" %}
+{% block navbar %}
+    <div class="cpx-15 button_cont">
+        <a class="button_txt sf_semibold_sel right_mar dehigh" href="{{ url_for('front') }}">Homepage</a>
+        <a class="button_txt middle_mar dehigh sf_semibold_sel" href="/#">Hot</a>
+        <a class="button_txt sf_semibold_sel left_mar dehigh" href="{{ url_for('stats') }}">Stats</a>
+    </div>{% endblock navbar %}
+{% block body %}
+<div>
+    <div class="white_bg smol_cont shadow_lol pt-5">
+        <div class="pt-5">
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <div class="bgbg_bgbg img_reg text-center">
+                        <h4 class="sf_semibold white_font">Gabung Sekarang!</h4>
+                    </div>
+                    <div class="form-group">
+                        {{ form.username.label(class="form-control-label") }}
+
+                        {% if form.username.errors %}
+                            {{ form.username(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.username.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.username(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.email.label(class="form-control-label") }}
+                        {% if form.email.errors %}
+                            {{ form.email(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.email(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.password.label(class="form-control-label") }}
+                        {% if form.password.errors %}
+                            {{ form.password(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.password.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.password(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.confirm_password.label(class="form-control-label") }}
+                        {% if form.confirm_password.errors %}
+                            {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.confirm_password.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.confirm_password(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+            </form>
+            <div class="border-top container">
+                <div class="bgbg_bgbg2 text-center">
+                    <div class="backgore2">
+                        <a class="form_button_txt_2 sf_semibold white_font" href="{{ url_for('login') }}">Sudah Memiliki Akun?  Log-In Disini!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+{% block sidebar %}
+<div class="col-md-5">
+  <div class="sidbar white_bg shadow_lol">
+      <ul class="list-group sidbar_padding">
+        <li class="list-group-item list-group-item-light">Latest Posts</li>
+        <li class="list-group-item list-group-item-light">Announcements</li>
+        <li class="list-group-item list-group-item-light">Calendars</li>
+        <li class="list-group-item list-group-item-light">etc</li>
+      </ul>
+      <div class="bgbg_bg imag_pudding">
+        <h4 class="sf_semibold white_font">Wellcome</h4>
+      </div>
+    </p>
+  </div>
+</div>
+{% endblock sidebar %}

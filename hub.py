@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, flash, redirect
 from PredictionModel import run_prediction
 from datetime import date, timedelta
 from forms import RegistrationForm, LoginForm
@@ -14,6 +14,20 @@ import pickle
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '51c11bd0792105993631f9e22095b5f8'
 
+posts = [
+    {
+        'author': 'Corey Schafer',
+        'title': 'Blog Post 1',
+        'content': 'First post content',
+        'date_posted': 'April 20, 2018'
+    },
+    {
+        'author': 'Jane Doe',
+        'title': 'Blog Post 2',
+        'content': 'Second post content',
+        'date_posted': 'April 21, 2018'
+    }
+]
 
 try:
     lastRun = pickle.load(open("day.pickle", "rb"))
@@ -29,13 +43,29 @@ if date.today() > lastRun :
 else:
     pass
 
+df = pd.read_csv('testfile.csv')
+t_stat = int(df.loc[df['SN'] == df['total'].notna()[::-1].idxmax() + 1, 'total'])
+y_stat = int(df.loc[df['SN'] == df['total'].notna()[::-1].idxmax(), 'total'])
+yoy_stat = int(df.loc[df['SN'] == df['total'].notna()[::-1].idxmax() - 1, 'total'])
+p_stat = int(df.loc[df['SN'] == df['total'].notna()[::-1].idxmax() + 7, 'y_fut'])
+c_stat = t_stat - y_stat 
+c1_stat = y_stat - yoy_stat
+news = c_stat - c1_stat
+news2 = p_stat - t_stat
+
 
 @app.route('/')
 def front():
     return render_template(
-        'frontpage.html'
+        'frontpage.html',
+        posts=posts,
+        today=f'{t_stat:,}',
+        predict=f'{p_stat:,}',
+        change=f'{c_stat:,}',
+        compare=f'{c1_stat:,}',
+        news=news,
+        news2=news2,
         )
-'''
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form=LoginForm()
@@ -43,7 +73,7 @@ def login():
         if form.validate_on_submit():
             if form.email.data == 'admin@blog.com' and form.password.data == 'password':
                 flash('You have been logged in!', 'success')
-                return redirect(url_for('home'))
+                return redirect(url_for('front'))
             else:
                 flash('Login Unsuccessful. Please check username and password', 'danger')
     return render_template(
@@ -51,7 +81,6 @@ def login():
         title='Login',
         form=form
         )
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form=RegistrationForm()
@@ -62,7 +91,7 @@ def register():
             )
         return redirect(
             url_for(
-                'home'
+                'login'
                 )
             )
     return render_template(
@@ -70,18 +99,9 @@ def register():
         title='Register',
         form=form
         )
-'''
+
 @app.route('/stats')
 def stats():
-    df = pd.read_csv('testfile.csv')
-    t_stat = int(df.loc[df['SN'] == df['total'].notna()[::-1].idxmax() + 1, 'total'])
-    y_stat = int(df.loc[df['SN'] == df['total'].notna()[::-1].idxmax(), 'total'])
-    yoy_stat = int(df.loc[df['SN'] == df['total'].notna()[::-1].idxmax() - 1, 'total'])
-    p_stat = int(df.loc[df['SN'] == df['total'].notna()[::-1].idxmax() + 7, 'y_fut'])
-    c_stat = t_stat - y_stat 
-    c1_stat = y_stat - yoy_stat
-    news = c_stat - c1_stat
-    news2 = p_stat - t_stat
     bar = create_plot()
     return render_template(
         'stats.html',
@@ -91,12 +111,13 @@ def stats():
         change=f'{c_stat:,}',
         compare=f'{c1_stat:,}',
         news=news,
-        news2=news2
+        news2=news2,
+        title='Stats'
         )
 
 def create_plot():
     df = pd.read_csv('testfile.csv')
-    fig = go.Figure(layout_title_text="Statistik Covid-19")
+    fig = go.Figure(layout_title_text=" ")
     fig.add_trace(go.Scatter(x=df["date"], y=df['predicted'], name="Past Prediction", line = dict(color='#2AA965', width=2)))
     fig.add_bar(x=df["date"], y=df["total"], name="Total Cases")
     fig.add_trace(go.Scatter(x=df["date"], y=df['y_fut'], name="Future Prediction", line = dict(color='#CC252C', width=2, dash='dot')))
@@ -113,7 +134,7 @@ def create_plot():
         margin=dict(l=20, r=20, t=23, b=20),
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='#E1E1E1'
-    )
+        )
     data = fig
     graphJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON

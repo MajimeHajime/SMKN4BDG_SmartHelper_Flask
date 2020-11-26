@@ -58,7 +58,7 @@ body {
 
 .content_big{
 	padding: 3px 132px 60px 132px;
-	margin: 0px 75px 75px 60px;
+	margin: 0px 75px 30px 75px;
 	border-bottom-right-radius:10px; 
 	border-bottom-left-radius:10px;
 }
@@ -189,4 +189,200 @@ body {
 }
 .mt-0px{
 	margin-top: 0px;
+}
+.smol_cont {
+	padding: 3px 80px 60px 80px;
+	margin: 0px 0px 30px 0px;
+	border-bottom-right-radius:10px; 
+	border-bottom-left-radius:10px;
+}
+.sidbar {
+	margin-right: 0px;
+	margin-top: 5rem;
+	border-radius: 10px;
+}
+.sidbar_padding {
+	padding: 30px 50px 30px 50px;
+}
+.bgbg_bg{
+	background-image: url('/static/image/backdrop.jpeg');
+	border-bottom-right-radius:10px;
+	border-bottom-left-radius:10px; 
+	background-size: 700px 300px;
+	background-repeat: no-repeat;
+  	background-position: center;
+}
+.bgbg_bgbg{
+	background-image: url('/static/image/backdrop.jpeg');
+	border-radius:10px;
+	background-size: 700px 300px;
+	background-repeat: no-repeat;
+  	background-position: center;
+}
+.bgbg_bg2{
+	background-image: url('/static/image/second.png');
+	border-top-right-radius:10px;
+	border-top-left-radius:10px; 
+	background-size: 700px 300px;
+	background-repeat: no-repeat;
+  	background-position: center;
+}
+.bgbg_bgbg2{
+	background-image: url('/static/image/second.png');
+	border-radius:10px;
+	background-size: 700px 300px;
+	background-repeat: no-repeat;
+  	background-position: center;
+}
+.imag_pudding {
+	padding: 50px 50px 40px 50px;
+}
+.sf_semibold {
+	color: #1F1F1F;
+	text-decoration: none;
+	font-family: "SF Pro Display Semibold";
+}
+.white_font {
+	color: #FFFFFF;
+}
+.form_button_txt {
+	font-size: 15px;
+	text-decoration: none;
+	color: #0071E3;
+}
+.form_button_txt:hover { 
+	text-decoration: none;
+	color: #EEEEEE;
+}
+.btn-outline-info {
+  color: #FFFFFF;
+  background-color: #0071E3;
+  background-image: none;
+}
+
+.btn-outline-info:hover {
+  color: #fff;
+  background-color: #0091FF;
+  border-color: #0091FF;
+}
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0px 15px;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 100px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.pt7-sh{
+	padding-top: 5.4rem;
+}
+.x_margin{
+	margin-right: 75px;
+	margin-left: 75px;
+}
+
+.posts_bg {
+	background-color: white;
+	border: 1px solid #CBCBCB; 
+	padding: 3px 80px 60px 80px;
+	margin: 0px 0px -1px 0px;
+}
+.font_30 {
+	font-size: 30px;
+}
+.imag_pudding2 {
+	padding: 20px 50px 20px 50px;
+}
+.post_bgbg {
+	background-image: url('/static/image/third.jpg');
+	border-top-right-radius:10px;
+	border-top-left-radius:10px; 
+	background-size: 700px 300px;
+	background-repeat: no-repeat;
+  	background-position: center;
+	border: 1px solid #CBCBCB;
+	border-bottom: none;
+}
+.covid_bgbg {
+	background-image: url('/static/image/fourth.jpg');
+	border-top-right-radius:10px;
+	border-top-left-radius:10px; 
+	background-size: 700px 500px;
+	background-repeat: no-repeat;
+  	background-position: center;
+	border: 1px solid #CBCBCB;
+	border-bottom: none;
+}
+.imag_pudding3 {
+	padding: 163px 50px 163px 50px;
+}
+.backgore{
+	background-color: rgba(0, 0, 0, 0.20);
+	backdrop-filter: blur(15px);
+	border-top-right-radius:10px;
+	border-top-left-radius:10px; 
+	transition: 0.5s;
+}
+.backgore:hover{
+	background-color: rgba(0, 0, 0, 0.15);
+	backdrop-filter: blur(0px);
+	border-top-right-radius:10px;
+	border-top-left-radius:10px; 
+}
+.font_15px{
+	font-size: 15px;
+}
+.sidbar_padding2{
+	padding-right: 10px; 
+	padding-left: 10px;
+	padding-bottom:10px;
+}
+.img_reg{
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.img_reg2{
+	padding: 10px;
+	margin-top: 10px;
+}
+.backgore2{
+	background-color: rgba(0, 0, 0, 0.20);
+	backdrop-filter: blur(15px);
+	border-radius: 10px;
+	transition: 0.5s;
+	padding: 10px;
+	margin-top: 10px;
+}
+.backgore2:hover{
+	background-color: rgba(0, 0, 0, 0.15);
+	backdrop-filter: blur(0px);
+}
+.form_button_txt_2 {
+	font-size: 15px;
+	text-decoration: none;
+	color: #FFFFFF;
+}
+.form_button_txt_2:hover { 
+	text-decoration: none;
+	color: #FFFFFF;
+}
+.pt-stat{
+	padding-top: 5.2rem;
+}
+.bgbg_bgbg_s{
+	background-image: url('/static/image/stat.jpg');
+	border-radius:10px;
+	background-size: 1000px 300px;
+	background-repeat: no-repeat;
+  	background-position: center;
+  	padding: 30px;
 }
