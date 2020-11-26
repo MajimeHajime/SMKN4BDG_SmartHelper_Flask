@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% block navbar %}
+    <div class="cpx-15 button_cont">
+        <a class="button_txt sf_semibold_sel right_mar dehigh" href="{{ url_for('front') }}">Homepage</a>
+        <a class="button_txt middle_mar dehigh sf_semibold_sel" href="/#">Hot</a>
+        <a class="button_txt sf_semibold_sel left_mar dehigh" href="{{ url_for('stats') }}">Stats</a>
+    </div>{% endblock navbar %}
+{% block body %}
+    <h1>{{ current_user.username }}</h1>
+{% endblock body %}
+{% block sidebar %}
+<div class="col-md-5">
+  <div class="sidbar white_bg shadow_lol">
+    <div class="bgbg_bg2 imag_pudding">
+        <h4 class="sf_semibold white_font">{{ current_user.username }}</h4>
+    </div>
+      <ul class="list-group sidbar_padding">
+        <li class="list-group-item list-group-item-light">Latest Posts</li>
+        <li class="list-group-item list-group-item-light">Announcements</li>
+        <li class="list-group-item list-group-item-light">Calendars</li>
+        <li class="list-group-item list-group-item-light">etc</li>
+      </ul>
+    </p>
+  </div>
+</div>
+{% endblock sidebar %}
