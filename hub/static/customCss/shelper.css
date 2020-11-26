@@ -332,6 +332,12 @@ body {
 	border-top-left-radius:10px; 
 	transition: 0.5s;
 }
+.backgore3{	
+	background-color: rgba(200, 200, 200, 0.15);
+	backdrop-filter: blur(3px);
+	border-top-right-radius:10px;
+	border-top-left-radius:10px; 
+}
 .backgore:hover{
 	background-color: rgba(0, 0, 0, 0.15);
 	backdrop-filter: blur(0px);
