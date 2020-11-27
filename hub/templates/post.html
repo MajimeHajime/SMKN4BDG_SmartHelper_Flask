@@ -8,20 +8,20 @@
 {% endblock navbar %}
 {% block body %}
   <article class="media sidbar white_bg shadow_lol sidbar_padding">
-    <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+    <img class="article_image" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
     <div class="media-body">
       <div class="article-metadata">
         <a class="mr-2" href="#">{{ post.author.username }}</a>
         <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
         {% if post.author == current_user %}
           <div>
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('update_post', post_id=post.id) }}">Update</a>
-            <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
+            <a class="button_txt mr-3" href="{{ url_for('update_post', post_id=post.id) }}">Update</a>
+            <a class="button_txt" data-toggle="modal" data-target="#deleteModal">Delete</a>
           </div>
         {% endif %}
       </div>
       <h2 class="article-title">{{ post.title }}</h2>
-      <p class="article-content">{{ post.content }}</p>
+      <p class="article-content">{{ post.content | safe }}</p>
     </div>
   </article>
   <!-- Modal -->
