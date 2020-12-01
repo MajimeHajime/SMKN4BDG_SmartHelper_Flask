@@ -65,7 +65,7 @@ body {
 	background-color: white;
 }
 .shadow_lol{
-	box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.16);
+	box-shadow: 0px 2px 6px 1px rgba(0, 0, 0, 0.16);
 }
 
 .nav-link:hover .nav-link:focus{
@@ -402,4 +402,43 @@ body {
 	border-radius: 10px;
 	margin-right: 20px;
 	margin-bottom: 10px;
+}
+
+.hot_bgbg {
+	background-image: url('/static/image/third.jpg');
+	border-top-right-radius:10px;
+	border-top-left-radius:10px; 
+	background-size: 1300px 500px;
+	background-repeat: no-repeat;
+  	background-position: center;
+	border: 1px solid #CBCBCB;
+	border-bottom: none;
+}
+.post_title{
+	color: #0278AE;
+}
+
+.link_haha{
+	text-decoration: none;
+	font-size: 20px;
+}
+.link_haha:hover{
+	text-decoration: none;
+	color: white;
+}
+
+.sc_bgbg {
+	background-image: url('/static/image/self_check.jpg');
+	border-radius: 10px;
+	background-size: 700px 300px;
+	background-repeat: no-repeat;
+  	background-position: center;
+	border: 1px solid #CBCBCB;
+	border-bottom: none;
+}
+
+.backgore_sc{	
+	background-color: rgba(200, 200, 200, 0.15);
+	backdrop-filter: blur(3px);
+	border-radius: 10px;
 }

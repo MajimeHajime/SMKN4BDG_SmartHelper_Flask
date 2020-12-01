@@ -22,6 +22,14 @@ def front():
         news2=news2,
         )
 
+@app.route('/hot')
+def hot():
+    return render_template(
+        'hot.html',
+        posts = Post.query.order_by(Post.date_posted.desc()).all(),
+        )
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:

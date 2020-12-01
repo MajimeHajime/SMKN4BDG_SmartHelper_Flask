@@ -1,0 +1,29 @@
+{% extends 'no_sidebar.index.html' %}
+
+{% block navbar %}
+	<div class="cpx-15 button_cont">
+		<a class="button_txt right_mar sf_semibold_sel dehigh" href="{{ url_for('front') }}">Homepage</a>
+		<a class="button_txt middle_mar dehigh sf_semibold_sel button_txt sf_semibold_sel right_mar sf_semibold black_1f" href="{{ url_for('hot') }}">Hot</a>
+		<a class="button_txt dehigh sf_semibold_sel left_mar" href="{{ url_for('stats') }}">Stats</a>
+	</div>
+{% endblock %}
+{% block body %}
+<div class="pt7-sh">
+	<div class="hot_bgbg">
+		<div class="backgore3 imag_pudding2 text-center">
+			<p class="sf_semibold font_30 mb-0px white_font">Hot!</p>
+		</div>
+	</div>
+    {% for post in posts %}
+        <article class="media posts_bg row">
+          <div class="col-md-3">
+          	<img class="article_image" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+          </div>
+          <div class="col-md-9">
+            <h2><a class="" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+            <p class="">{{ post.content | truncate(300) | safe  }}</p>
+           </div>
+        </article>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -3,11 +3,18 @@
 {% block navbar %}
 	<div class="cpx-15 button_cont">
 		<a class="button_txt sf_semibold_sel right_mar sf_semibold black_1f" href="{{ url_for('front') }}">Homepage</a>
-		<a class="button_txt middle_mar dehigh sf_semibold_sel" href="/#">Hot</a>
+		<a class="button_txt middle_mar dehigh sf_semibold_sel" href="{{ url_for('hot') }}">Hot</a>
 		<a class="button_txt dehigh sf_semibold_sel left_mar" href="{{ url_for('stats') }}">Stats</a>
 	</div>
 {% endblock %}
 {% block body %}
+<div class="pt7-sh">
+	<div class="sc_bgbg">
+		<div class="backgore_sc imag_pudding2 ">
+			<p class="sf_semibold font_30 mb-0px white_font">Get Yourself Checked Right Now!</p>
+		</div>
+	</div>
+</div>
 <div class="pt7-sh">
 	<div class="post_bgbg">
 		<div class="backgore3 imag_pudding2 ">
@@ -28,12 +35,13 @@
 </div>
 {% endblock %}
 {% block sidebar %}
+
 <div class="col-md-5">
   <div class="sidbar white_bg shadow_lol">
     <div class="covid_bgbg text-center">
     	<div class="backgore imag_pudding3 ">
-	        <h4 class="sf_semibold white_font">Watch The COVID-19 Prediction</h4>
-	        <h4 class="sf_semibold white_font">Powered by Artificial Intelligence</h4>
+	        <a href="{{ url_for('stats') }}" class="link_haha sf_semibold white_font">Watch The COVID-19 Prediction</a><br>
+	        <a href="{{ url_for('stats') }}" class="link_haha sf_semibold white_font">Powered by Artificial Intelligence</a>
     	</div>
     </div>
       <ul class="list-group sidbar_padding2">
