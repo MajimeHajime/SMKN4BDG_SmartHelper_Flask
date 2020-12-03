@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Self-Checkup</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='customCss/style.css') }}">
+</head>
+<body>
+    <div class="grid">
+        <div id="quiz">
+            <h1>Self Checkup</h1>
+            <hr style="margin-bottom: 20px">
+
+            <p id="question"></p>
+
+            <div class="buttons">
+                <button id="btn0"><span id="choice0"></span></button>
+                <button id="btn1"><span id="choice1"></span></button>
+            </div>
+
+            <hr style="margin-top: 50px">
+            <footer>
+                <div class="sbmt"></div>
+                <p id="progress">Pertanyaan x dari y</p>
+            </footer>
+        </div>
+    </div>
+
+<script src="{{ url_for('static', filename='customJs/quiz.js') }}"></script>
+<script src="{{ url_for('static', filename='customJs/question.js') }}"></script>
+<script src="{{ url_for('static', filename='customJs/app.js') }}"></script>
+</body>
+</html>

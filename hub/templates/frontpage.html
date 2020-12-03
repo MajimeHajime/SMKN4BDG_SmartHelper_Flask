@@ -11,7 +11,7 @@
 <div class="pt7-sh">
 	<div class="sc_bgbg">
 		<div class="backgore_sc imag_pudding2 ">
-			<p class="sf_semibold font_30 mb-0px white_font">Get Yourself Checked Right Now!</p>
+			<a href="{{ url_for('sc') }}" class="sf_semibold font_30 mb-0px white_font">Get Yourself Checked Right Now!</a>
 		</div>
 	</div>
 </div>
@@ -24,7 +24,7 @@
     {% for post in posts %}
         <article class="media posts_bg row">
           <div class="col-md-3">
-          	<img class="article_image" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+          	<img class="article_image rounded-circle" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
           </div>
           <div class="col-md-9">
             <h2><a class="" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>

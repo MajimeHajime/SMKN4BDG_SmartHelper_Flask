@@ -87,12 +87,43 @@
 {% block sidebar %}
 <div class="col-md-5">
   <div class="sidbar white_bg shadow_lol">
-      <ul class="list-group sidbar_padding">
-        <li class="list-group-item list-group-item-light">Placeholder</li>
-        <li class="list-group-item list-group-item-light">Announcements</li>
-        <li class="list-group-item list-group-item-light">Calendars</li>
-        <li class="list-group-item list-group-item-light">etc</li>
-      </ul>
+      <div class="text-center px-4 pb-5">
+            <p class="mt-5 mb-0 sf_semibold font_30px">Status Terbaru</p>
+            <div class="row sf_semibold font_15px ">
+                <div class="col-md-4 text-center">
+                    <p class="mb-0">New Cases</p>
+                    <span class="pt-16px mb-0px font_30px">{{change}}</span>
+                    <div class="font_11px">
+                        {% if compare > change %}
+                            <p class="positive_n mt-0px">{{news}} Decrease From Yesterday</p>
+                        {% elif compare == change %}
+                            <p class="nonews_n mt-0px">A steady increase</p>
+                        {% elif compare < change %}
+                            <p class="negative_n mt-0px">+{{news}} Increase From Yesterday</p>
+                        {% else %}
+                            <p class="nonews_n mt-0">Error</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <p class="mb-0">Total Cases</p>
+                    <span class="pt-16px mb-0px font_30px">{{today}}</span>
+                </div>
+                <div class="col-md-4 text-center">
+                    <p class="mb-0">Next Week</p>
+                    <span class="pt-16px mb-0px font_30px">{{predict}}</span> 
+                    <div class="font_11px">
+                        {% if today > predict %}
+                            <p class="positive_n mt-0px">{{news2}} From Today</p>
+                        {% elif today < predict %}
+                            <p class="negative_n mt-0px">+{{news2}} From Today</p>
+                        {% else %}
+                            <p class="nonews_n mt-0">Error</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>  
+        </div>
       <div class="bgbg_bg imag_pudding">
         <h4 class="sf_semibold white_font">Welcome</h4>
       </div>

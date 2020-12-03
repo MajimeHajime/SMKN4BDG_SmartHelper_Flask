@@ -29,6 +29,12 @@ def hot():
         posts = Post.query.order_by(Post.date_posted.desc()).all(),
         )
 
+@app.route('/self-check')
+def sc():
+    return render_template(
+        'sc.html',
+        )
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -43,7 +49,13 @@ def login():
             return redirect(next_page) if next_page else redirect(url_for('front'))
         else:
             flash('Login Unsuccessful. Please check email and password', 'danger')
-    return render_template('login.html', title='Login', form=form)
+    return render_template('login.html', title='Login', form=form,
+        today=f'{t_stat:,}',
+        predict=f'{p_stat:,}',
+        change=f'{c_stat:,}',
+        compare=f'{c1_stat:,}',
+        news=news,
+        news2=news2,)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -57,7 +69,12 @@ def register():
         db.session.commit()
         flash('Your account has been created! You are now able to log in', 'success')
         return redirect(url_for('login'))
-    return render_template('register.html', title='Register', form=form)
+    return render_template('register.html', title='Register', form=form, today=f'{t_stat:,}',
+        predict=f'{p_stat:,}',
+        change=f'{c_stat:,}',
+        compare=f'{c1_stat:,}',
+        news=news,
+        news2=news2,)
 
 @app.route('/stats')
 def stats():
@@ -111,7 +128,12 @@ def account():
         form.email.data = current_user.email
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template('account.html', title='Account',
-                           image_file=image_file, form=form)
+                           image_file=image_file, form=form, today=f'{t_stat:,}',
+        predict=f'{p_stat:,}',
+        change=f'{c_stat:,}',
+        compare=f'{c1_stat:,}',
+        news=news,
+        news2=news2,)
 
 @app.route("/post/new", methods=['GET', 'POST'])
 @login_required
@@ -124,7 +146,12 @@ def new_post():
         flash('Your post has been created!', 'success')
         return redirect(url_for('front'))
     return render_template('posting.html', title='New Post',
-                           form=form, legend='New Post')
+                           form=form, legend='New Post', today=f'{t_stat:,}',
+        predict=f'{p_stat:,}',
+        change=f'{c_stat:,}',
+        compare=f'{c1_stat:,}',
+        news=news,
+        news2=news2,)
 
 
 @app.route("/post/<int:post_id>")
